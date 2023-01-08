@@ -60,7 +60,7 @@ function Movies() {
 					numOfPages > 1 ? (
 						<CustomPagination setPage={setPage} numOfPages={numOfPages} />
 					) : null
-				) : null}{' '}
+				) : null}
 			</Content>
 		</PageWrapper>
 	);
