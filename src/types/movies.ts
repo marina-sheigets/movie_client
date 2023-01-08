@@ -16,3 +16,9 @@ export type MovieBody = {
 	page: number;
 	genreForUrl: string;
 };
+
+export type SearchBody = {
+	searchText: string;
+	page: number;
+	type: string;
+};
