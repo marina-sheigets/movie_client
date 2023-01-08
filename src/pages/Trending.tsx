@@ -32,7 +32,6 @@ function Trending() {
 			<Header>
 				<Heading>Trending</Heading>
 			</Header>
-			<StyledCustomPagination setPage={setPage} />
 			<Content>
 				<Tiles>
 					{list.length ? (
@@ -41,6 +40,8 @@ function Trending() {
 						<>There are no any results... </>
 					)}
 				</Tiles>
+
+				<StyledCustomPagination setPage={setPage} />
 			</Content>
 		</PageWrapper>
 	);

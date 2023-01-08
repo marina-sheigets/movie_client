@@ -51,11 +51,7 @@ function Series() {
 					setGenres={setGenres}
 					setPage={setPage}
 				/>
-				{numOfPages ? (
-					numOfPages > 1 ? (
-						<CustomPagination setPage={setPage} numOfPages={numOfPages} />
-					) : null
-				) : null}
+
 				<Tiles>
 					{series.length ? (
 						series.map((serial) => <ContentTile key={serial.id} movie={serial} />)
@@ -63,6 +59,11 @@ function Series() {
 						<>There are no any results... </>
 					)}
 				</Tiles>
+				{numOfPages ? (
+					numOfPages > 1 ? (
+						<CustomPagination setPage={setPage} numOfPages={numOfPages} />
+					) : null
+				) : null}
 			</Content>
 		</PageWrapper>
 	);

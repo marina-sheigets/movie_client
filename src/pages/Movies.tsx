@@ -49,7 +49,6 @@ function Movies() {
 					setGenres={setGenres}
 					setPage={setPage}
 				/>
-				<CustomPagination numOfPages={numOfPages} setPage={setPage} />
 				<Tiles>
 					{movies.length ? (
 						movies.map((movie) => <ContentTile key={movie.id} movie={movie} />)
@@ -57,6 +56,11 @@ function Movies() {
 						<>There are no any results... </>
 					)}
 				</Tiles>
+				{numOfPages ? (
+					numOfPages > 1 ? (
+						<CustomPagination setPage={setPage} numOfPages={numOfPages} />
+					) : null
+				) : null}{' '}
 			</Content>
 		</PageWrapper>
 	);
