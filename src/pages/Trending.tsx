@@ -6,6 +6,11 @@ import { getTrendingListAction } from '../redux/api/ApiActions';
 import { getTrendingList } from '../redux/selectors/movies';
 import { Movie } from '../types/movies';
 import CustomPagination from '../components/_templates/CustomPagination';
+import PageWrapper from '../components/_atoms/PageWrapper';
+import Header from '../components/_atoms/Header';
+import { Typography } from '@mui/material';
+import Content from '../components/_atoms/Content';
+import Tiles from '../components/_atoms/Tiles';
 
 function Trending() {
 	const dispatch = useDispatch();
@@ -23,7 +28,10 @@ function Trending() {
 		}
 	}, [trendingList]);
 	return (
-		<Wrapper>
+		<PageWrapper>
+			<Header>
+				<Heading>Trending</Heading>
+			</Header>
 			<StyledCustomPagination setPage={setPage} />
 			<Content>
 				<Tiles>
@@ -34,16 +42,13 @@ function Trending() {
 					)}
 				</Tiles>
 			</Content>
-		</Wrapper>
+		</PageWrapper>
 	);
 }
 
-const Tiles = styled('div')`
-	color:white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+const Heading = styled(Typography)`
+	font-size: 3rem;
+	font-weight: 700;
 `;
 
 const StyledCustomPagination = styled(CustomPagination)`
@@ -53,15 +58,6 @@ const StyledCustomPagination = styled(CustomPagination)`
 			color: white;
 		}
 	}
-`;
-
-const Wrapper = styled('div')`
-	background: #001e3c;
-	min-height: 100vh;
-`;
-const Content = styled('div')`
-	width: 70%;
-	margin: 0 auto;
 `;
 
 export default Trending;

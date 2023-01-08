@@ -6,3 +6,13 @@ export type Movie = {
 	mediaType: string;
 	voteAverage: number;
 };
+
+export type Genre = {
+	id: number;
+	name: string;
+};
+
+export type MovieBody = {
+	page: number;
+	genreForUrl: string;
+};

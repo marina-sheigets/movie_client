@@ -10,8 +10,6 @@ type ContentTileProps = {
 
 function ContentTile({ movie }: ContentTileProps) {
 	const { poster, title, date, mediaType, voteAverage } = movie;
-
-	console.log(movie);
 	return (
 		<Tile>
 			<Badge badgeContent={voteAverage} color={voteAverage > 6 ? 'primary' : 'secondary'} />
@@ -36,7 +34,8 @@ const ShortInfo = styled('div')`
 `;
 const Title = styled('h3')`
 	text-align: center;
-	font-weight: 600;
+	font-weight: 400;
+
 	margin: 10px;
 `;
 const Tile = styled('div')`

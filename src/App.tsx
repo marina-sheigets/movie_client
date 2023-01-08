@@ -9,15 +9,11 @@ import SignUp from './pages/SignUp';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import styled from 'styled-components';
-import { Typography } from '@mui/material';
 import NavigationMenu from './components/_templates/NavigationMenu';
 
 function App() {
 	return (
 		<AppWrapper>
-			<Header>
-				<Heading>Trending</Heading>
-			</Header>
 			<BrowserRouter>
 				<Routes>
 					<Route path='/login' element={<Login />} />
@@ -36,28 +32,12 @@ function App() {
 		</AppWrapper>
 	);
 }
-const Heading = styled(Typography)`
-	font-size: 3rem;
-	font-weight: 700;
-`;
 
 const AppWrapper = styled('div')`
 	scroll-behavior: smooth;
 	font-family: 'Montserrat', sans-serif;
 
 	box-sizing: border-box;
-`;
-
-const Header = styled('header')`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 4rem;
-	background: #071a2f;
-	color: white;
-	-webkit-box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.5);
-	box-shadow: 0px 7px 5px 0px rgba(0, 0, 0, 0.5);
 `;
 
 const Footer = styled('footer')`
