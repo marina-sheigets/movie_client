@@ -1,5 +1,6 @@
 import { Badge } from '@mui/material';
 import React from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { img_300, unavailable } from '../../config';
 import { Movie } from '../../types/movies';
@@ -10,8 +11,13 @@ type ContentTileProps = {
 
 function ContentTile({ movie }: ContentTileProps) {
 	const { poster, title, date, mediaType, voteAverage } = movie;
+	const navigate = useNavigate();
+
+	const onNavigateToDetailedPage = () => {
+		navigate(`/detailed/${movie.id}`);
+	};
 	return (
-		<Tile>
+		<Tile onClick={onNavigateToDetailedPage}>
 			<Badge badgeContent={voteAverage} color={voteAverage > 6 ? 'primary' : 'secondary'} />
 			<Poster src={poster ? `${img_300}/${poster}` : unavailable} alt={title} />
 			<Title>{title}</Title>

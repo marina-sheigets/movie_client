@@ -8,3 +8,8 @@ export type MovieResponse = {
 	media_type: string;
 	vote_average: number;
 };
+
+export type VideoResponse = {
+	id: string;
+	key: string;
+};

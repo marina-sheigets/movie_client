@@ -75,3 +75,45 @@ export const getSearchResultsRequest = async (payload: SearchBody) => {
 		};
 	}
 };
+
+export const getMovieInfoRequest = async (id: number) => {
+	try {
+		const response = await axios.get(
+			`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+		);
+		return { success: true, data: response.data };
+	} catch (err: any) {
+		return {
+			success: false,
+			data: err.response.data || 'Oops, something went wrong',
+		};
+	}
+};
+
+export const getVideosRequest = async (id: number) => {
+	try {
+		const response = await axios.get(
+			`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+		);
+		return { success: true, data: response.data };
+	} catch (err: any) {
+		return {
+			success: false,
+			data: err.response.data || 'Oops, something went wrong',
+		};
+	}
+};
+
+export const getSimilarMoviesRequest = async (id: number) => {
+	try {
+		const response = await axios.get(
+			`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
+		);
+		return { success: true, data: response.data };
+	} catch (err: any) {
+		return {
+			success: false,
+			data: err.response.data || 'Oops, something went wrong',
+		};
+	}
+};

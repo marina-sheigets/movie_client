@@ -1,10 +1,13 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {
 	getGenresAction,
+	getMovieInfoAction,
 	getMoviesAction,
 	getSearchResultsAction,
 	getSeriesAction,
+	getSimilarMoviesAction,
 	getTrendingListAction,
+	getVideosAction,
 } from '../api/ApiActions';
 import {
 	getTrendingListRequest,
@@ -12,6 +15,9 @@ import {
 	getMoviesRequest,
 	getSeriesRequest,
 	getSearchResultsRequest,
+	getMovieInfoRequest,
+	getVideosRequest,
+	getSimilarMoviesRequest,
 } from '../api';
 import { IAction } from '../types';
 import { MovieBody, SearchBody } from '../../types/movies';
@@ -66,12 +72,44 @@ function* getSearchResults(action: IAction<SearchBody>) {
 	}
 }
 
+function* getMovieInfo(action: IAction<number>) {
+	try {
+		//@ts-ignore
+		const res = yield call(getMovieInfoRequest, action.payload);
+		yield put(getMovieInfoAction.success({ ...res.data }));
+	} catch ({ message }: any) {
+		yield put(getMovieInfoAction.failed({ message: message }));
+	}
+}
+
+function* getVideos(action: IAction<number>) {
+	try {
+		//@ts-ignore
+		const res = yield call(getVideosRequest, action.payload);
+		yield put(getVideosAction.success({ ...res.data }));
+	} catch ({ message }: any) {
+		yield put(getVideosAction.failed({ message: message }));
+	}
+}
+
+function* getSimilarMovies(action: IAction<number>) {
+	try {
+		//@ts-ignore
+		const res = yield call(getSimilarMoviesRequest, action.payload);
+		yield put(getSimilarMoviesAction.success({ ...res.data }));
+	} catch ({ message }: any) {
+		yield put(getSimilarMoviesAction.failed({ message: message }));
+	}
+}
 function* moviesWatcher() {
 	yield takeLatest(getTrendingListAction.type.REQUEST, getTrendingList);
 	yield takeLatest(getGenresAction.type.REQUEST, getGenres);
 	yield takeLatest(getMoviesAction.type.REQUEST, getMovies);
 	yield takeLatest(getSeriesAction.type.REQUEST, getSeries);
 	yield takeLatest(getSearchResultsAction.type.REQUEST, getSearchResults);
+	yield takeLatest(getMovieInfoAction.type.REQUEST, getMovieInfo);
+	yield takeLatest(getVideosAction.type.REQUEST, getVideos);
+	yield takeLatest(getSimilarMoviesAction.type.REQUEST, getSimilarMovies);
 }
 
 export default moviesWatcher;
