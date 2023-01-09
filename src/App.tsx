@@ -9,7 +9,7 @@ import SignUp from './pages/SignUp';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import styled from 'styled-components';
-import NavigationMenu from './components/_templates/NavigationMenu';
+import DetailedPage from './pages/DetailedPage';
 
 function App() {
 	return (
@@ -22,12 +22,10 @@ function App() {
 					<Route path='/series' element={<Series />} />
 					<Route path='/search' element={<Search />} />
 					<Route path='/personal' element={<HomePage />} />
+					<Route path='/detailed/:id' element={<DetailedPage />} />
 					<Route path='/' element={<Trending />} />
 					<Route path='*' element={<NotFoundPage />} />
 				</Routes>
-				<Footer>
-					<NavigationMenu />
-				</Footer>
 			</BrowserRouter>
 		</AppWrapper>
 	);
@@ -38,21 +36,6 @@ const AppWrapper = styled('div')`
 	font-family: 'Montserrat', sans-serif;
 
 	box-sizing: border-box;
-`;
-
-const Footer = styled('footer')`
-	z-index: 5;
-	position: fixed;
-	height: 3rem;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	padding: 0.5rem 0;
-
-	background: #071a2f;
-	-webkit-box-shadow: 0px -7px 5px 0px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0px -7px 5px 0px rgba(0, 0, 0, 0.5);
-	box-shadow: 0px -7px 5px 0px rgba(0, 0, 0, 0.5);
 `;
 
 export default App;

@@ -11,6 +11,8 @@ import Header from '../components/_atoms/Header';
 import { Typography } from '@mui/material';
 import Content from '../components/_atoms/Content';
 import Tiles from '../components/_atoms/Tiles';
+import Footer from '../components/_atoms/Footer';
+import NavigationMenu from '../components/_templates/NavigationMenu';
 
 function Trending() {
 	const dispatch = useDispatch();
@@ -43,6 +45,9 @@ function Trending() {
 
 				<StyledCustomPagination setPage={setPage} />
 			</Content>
+			<Footer>
+				<NavigationMenu />
+			</Footer>
 		</PageWrapper>
 	);
 }

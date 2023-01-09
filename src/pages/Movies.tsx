@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Content from '../components/_atoms/Content';
+import Footer from '../components/_atoms/Footer';
 import Header from '../components/_atoms/Header';
 import Heading from '../components/_atoms/PageHeading';
 import PageWrapper from '../components/_atoms/PageWrapper';
@@ -8,6 +9,7 @@ import Tiles from '../components/_atoms/Tiles';
 import ContentTile from '../components/_templates/ContentTile';
 import CustomPagination from '../components/_templates/CustomPagination';
 import Genres from '../components/_templates/Genres';
+import NavigationMenu from '../components/_templates/NavigationMenu';
 import useGenres from '../hooks/useGenre';
 import { getMoviesAction } from '../redux/api/ApiActions';
 import { getGenresList, getMovies } from '../redux/selectors/movies';
@@ -56,12 +58,11 @@ function Movies() {
 						<>There are no any results... </>
 					)}
 				</Tiles>
-				{numOfPages ? (
-					numOfPages > 1 ? (
-						<CustomPagination setPage={setPage} numOfPages={numOfPages} />
-					) : null
-				) : null}
+				<CustomPagination numOfPages={numOfPages} setPage={setPage} />
 			</Content>
+			<Footer>
+				<NavigationMenu />
+			</Footer>
 		</PageWrapper>
 	);
 }

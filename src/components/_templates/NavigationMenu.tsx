@@ -7,8 +7,16 @@ import TvIcon from '@mui/icons-material/Tv';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
+type LocationType = { [key: string]: number };
+const Location: LocationType = {
+	'/': 0,
+	'/movies': 1,
+	'/series': 2,
+	'/search': 3,
+};
+
 function NavigationMenu() {
-	const [value, setValue] = React.useState(0);
+	const [value, setValue] = React.useState(Location[window.location.pathname]);
 	const navigate = useNavigate();
 
 	useEffect(() => {

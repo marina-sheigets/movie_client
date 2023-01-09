@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Content from '../components/_atoms/Content';
+import Footer from '../components/_atoms/Footer';
 import Header from '../components/_atoms/Header';
 import Heading from '../components/_atoms/PageHeading';
 import PageWrapper from '../components/_atoms/PageWrapper';
 import Tiles from '../components/_atoms/Tiles';
 import ContentTile from '../components/_templates/ContentTile';
 import CustomPagination from '../components/_templates/CustomPagination';
+import NavigationMenu from '../components/_templates/NavigationMenu';
 import { getSearchResultsAction } from '../redux/api/ApiActions';
 import { getMovies } from '../redux/selectors/movies';
 import { Movie } from '../types/movies';
@@ -65,6 +67,9 @@ function Search() {
 				</Tiles>
 				<CustomPagination setPage={setPage} numOfPages={numOfPages} />
 			</Content>
+			<Footer>
+				<NavigationMenu />
+			</Footer>
 		</PageWrapper>
 	);
 }
