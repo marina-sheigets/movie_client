@@ -7,8 +7,6 @@ import { getTrendingList } from '../redux/selectors/movies';
 import { Movie } from '../types/movies';
 import CustomPagination from '../components/_templates/CustomPagination';
 import PageWrapper from '../components/_atoms/PageWrapper';
-import Header from '../components/_atoms/Header';
-import { Typography } from '@mui/material';
 import Content from '../components/_atoms/Content';
 import Tiles from '../components/_atoms/Tiles';
 import Footer from '../components/_atoms/Footer';
@@ -31,9 +29,6 @@ function Trending() {
 	}, [trendingList]);
 	return (
 		<PageWrapper>
-			<Header>
-				<Heading>Trending</Heading>
-			</Header>
 			<Content>
 				<Tiles>
 					{list.length ? (
@@ -51,11 +46,6 @@ function Trending() {
 		</PageWrapper>
 	);
 }
-
-const Heading = styled(Typography)`
-	font-size: 3rem;
-	font-weight: 700;
-`;
 
 const StyledCustomPagination = styled(CustomPagination)`
 	padding-top: 1rem;

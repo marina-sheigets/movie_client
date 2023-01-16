@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Content from '../components/_atoms/Content';
 import Footer from '../components/_atoms/Footer';
-import Header from '../components/_atoms/Header';
-import Heading from '../components/_atoms/PageHeading';
 import PageWrapper from '../components/_atoms/PageWrapper';
 import Tiles from '../components/_atoms/Tiles';
 import ContentTile from '../components/_templates/ContentTile';
@@ -41,9 +39,6 @@ function Series() {
 
 	return (
 		<PageWrapper>
-			<Header>
-				<Heading>Series</Heading>
-			</Header>
 			<Content>
 				<Genres
 					type='tv'
